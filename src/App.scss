@@ -1,0 +1,67 @@
+:root {
+  --heading-font-family: 'Bebas Neue', cursive;
+  --body-font-family: 'BenchNine', sans-serif;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+}
+
+.gb {
+  &__header {
+    background: rgba(0, 4, 62, 1);
+    color: white;
+    padding: 10em 0;
+
+    h1 {
+      text-align: center;
+      font-weight: 500;
+      font-size: 4.5rem;
+    }
+  }
+
+  &__video {
+    padding: 2em 0;
+  }
+
+  &__course {
+    padding: 1em;
+    width: 250px;
+    height: 300px;
+    margin-right: 1em;
+
+    &__title {
+      font-weight: 800;
+    }
+
+    &__description {
+      height: 200px;
+    }
+  }
+
+  &__section {
+    &-dark {
+      background: rgba(0, 4, 62, 1);
+      color: white;
+      padding: 10em 0;
+
+      input,
+      label,
+      div{
+        color: white;
+        border-color: white;
+      }
+
+      input {
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid white;
+        width: 100%;
+        height: 2em;
+      }
+    }
+  }
+}
+
+.MuiTextField-root {
+  width: 100%;
+}

@@ -1,26 +1,113 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import firebase from './firebase'
+import './App.scss';
+import Container from '@material-ui/core/Container'
+import Grid from '@material-ui/core/Grid'
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
+import CardActions from '@material-ui/core/CardActions'
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+  constructor () {
+    super();
+
+    this.state = {
+      courses: [],
+      video: ''
+    }
+
+    const db = firebase.firestore()
+    db.collection('courses').get().then((querySnapshot) => {
+      querySnapshot.forEach(doc => {
+        this.setState(state => {
+          const courses = state.courses.concat(doc.data());
+          const video = ''
+
+          return {
+            courses,
+            video
+          };
+        });
+      })
+    });
+
+    db.collection('intro-video').get().then((querySnapshot) => {
+      querySnapshot.forEach(doc => {
+        this.setState(state => {
+          const courses = state.courses
+          const video = doc.data().video.split('=')[1]
+
+          return {
+            courses,
+            video
+          };
+        });
+      })
+    });
+  }
+
+  render () {
+    return (
+      <div className='gb'>
+        <header className='gb__header'>
+          <Container>
+            <h1>Gurmat Bibek Private School</h1>
+          </Container>
+        </header>
+
+        <main>
+          <Container component="section" className="gb__courses">
+            <Grid container alignContent='center' justify='center' className='gb__video'>
+              <iframe
+                width="90%" height="700" src={`https://www.youtube.com/embed/${ this.state.video }`} frameBorder="0"
+                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen></iframe>
+            </Grid>
+
+            <Grid container spacing={1}>
+              <Grid item xs={12}>
+                This is the write up
+              </Grid>
+            </Grid>
+
+            <Grid container spacing={1}>
+              {this.state.courses.map((course) =>
+                <Grid item lg-4>
+                  <Card variant='outlined' className='gb__course'>
+                    <CardContent className='gb__course__description'>
+                      <h4>{course.title}</h4>
+                      <p>{course.description}</p>
+                    </CardContent>
+                    <CardActions className='gb__course__price'>
+                      <p>$ {course.price}</p>
+                    </CardActions>
+                  </Card>
+                </Grid>
+              )}
+            </Grid>
+          </Container>
+
+          <div className='gb__section-dark'>
+            <Container component='section'>
+                <Grid container spacing={1}>
+                  <Grid item lg={4}>
+                    <TextField id="standard-basic" label="Full Name" />
+                  </Grid>
+                  <Grid item lg={4}>
+                    <TextField id="standard-basic" label="Email Address" />
+                  </Grid>
+                  <Grid item lg={4}>
+                    <Button variant="contained">Sign Up for Updates</Button>
+                  </Grid>
+                </Grid>
+            </Container>
+          </div>
+        </main>
+      </div>
+    );
+  }
 }
 
 export default App;
