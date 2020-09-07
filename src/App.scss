@@ -3,7 +3,8 @@
   --body-font-family: 'BenchNine', sans-serif;
   --primary-light-color: rgb(0, 17, 111);
   --primary-dark-color: rgb(1, 11, 66);
-  --secondary-color: rgb(206, 214, 72);
+  --secondary-light-color: rgb(206, 214, 72);
+  --secondary-dark-color: rgb(156, 163, 21);
 }
 
 body {
@@ -20,6 +21,8 @@ h6 {
 }
 
 .gb {
+  background: #eeeeee;
+
   &__header {
     background: var(--primary-light-color);
     background: radial-gradient(var(--primary-light-color), var(--primary-dark-color));
@@ -35,7 +38,20 @@ h6 {
   }
 
   &__video {
-    padding: 2em 0;
+    padding: 0;
+  }
+
+  &__intro-blurb {
+    background: var(--secondary-light-color);
+    background: radial-gradient(var(--secondary-light-color), var(--secondary-dark-color));
+    margin: 0;
+    padding: 3rem;
+    font-size: 2rem;
+    text-align: center;
+
+    &__title {
+      font-size: 3rem;
+    }
   }
 
   &__course {
@@ -43,9 +59,11 @@ h6 {
     width: 250px;
     height: 300px;
     margin-right: 1em;
+    margin-bottom: 1em;
 
     &__title {
       font-weight: 800;
+      font-size: 2rem;
     }
 
     &__description {
@@ -74,6 +92,18 @@ h6 {
       }
     }
   }
+
+  &__fees-structure {
+    background: var(--primary-light-color);
+    background: radial-gradient(var(--primary-light-color), var(--primary-dark-color));
+    color: white;
+    padding: 5em 0;
+  }
+
+  p,
+  li{
+    font-family: sans-serif;
+  }
 }
 
 .MuiTextField-root {
@@ -81,7 +111,7 @@ h6 {
 }
 
 .shape {
-  border: 1px solid var(--secondary-color);
+  border: 1px solid var(--secondary-light-color);
   position: absolute;
 
   &--square {
@@ -133,7 +163,7 @@ h6 {
   height: 4em;
   left: 80%;
   top: 20%;
-  background: repeating-linear-gradient(-45deg, transparent, transparent 5px, var(--secondary-color) 5px, var(--secondary-color) 1px, transparent 8px);
+  background: repeating-linear-gradient(-45deg, transparent, transparent 5px, var(--secondary-light-color) 5px, var(--secondary-light-color) 1px, transparent 8px);
 }
 
 .shape-3 {
@@ -149,7 +179,7 @@ h6 {
   left: 25%;
   top: 20%;
   border: none;
-  background: radial-gradient(var(--secondary-color) 2px, transparent 2px);
+  background: radial-gradient(var(--secondary-light-color) 2px, transparent 2px);
   background-size: 24px 24px;
 }
 
@@ -158,4 +188,8 @@ h6 {
   height: 4em;
   left: 70%;
   top: 60%;
+}
+
+.pt-0 {
+  padding-top: 0;
 }
