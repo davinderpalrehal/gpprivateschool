@@ -1,17 +1,31 @@
 :root {
-  --heading-font-family: 'Bebas Neue', cursive;
+  --heading-font-family: 'Bebas Neue', sans-serif;
   --body-font-family: 'BenchNine', sans-serif;
+  --primary-light-color: rgb(0, 17, 111);
+  --primary-dark-color: rgb(1, 11, 66);
+  --secondary-color: rgb(206, 214, 72);
 }
 
 body {
-  font-family: Roboto, sans-serif;
+  font-family: var(--body-font-family);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading-font-family);
 }
 
 .gb {
   &__header {
-    background: rgba(0, 4, 62, 1);
+    background: var(--primary-light-color);
+    background: radial-gradient(var(--primary-light-color), var(--primary-dark-color));
     color: white;
     padding: 10em 0;
+    position: relative;
 
     h1 {
       text-align: center;
@@ -64,4 +78,84 @@ body {
 
 .MuiTextField-root {
   width: 100%;
+}
+
+.shape {
+  border: 1px solid var(--secondary-color);
+  position: absolute;
+
+  &--square {
+    &--1em {
+      width: 1em;
+      height: 1em;
+    }
+
+    &--2em {
+      width: 2em;
+      height: 2em;
+    }
+  }
+
+  &--position {
+    @for $i from 0 through 10 {
+      &--#{$i}0 {
+        top: 10% * $i;
+        left: 10% * $i;
+
+        @for $j from 0 through 10 {
+          &--#{$j}0 {
+            top  : 10% * $i;
+            left : 10% * $j;
+          }
+        }
+      }
+    }
+  }
+}
+
+.shape-1,
+.shape-2,
+.shape-3,
+.shape-4,
+.shape-5 {
+  @extend .shape;
+}
+
+.shape-1 {
+  width: 3em;
+  height: 3em;
+  left: 20%;
+  top: 80%;
+}
+
+.shape-2 {
+  width: 4em;
+  height: 4em;
+  left: 80%;
+  top: 20%;
+  background: repeating-linear-gradient(-45deg, transparent, transparent 5px, var(--secondary-color) 5px, var(--secondary-color) 1px, transparent 8px);
+}
+
+.shape-3 {
+  width: 2em;
+  height: 2em;
+  left: 60%;
+  top: 40%;
+}
+
+.shape-4 {
+  width: 7em;
+  height: 7em;
+  left: 25%;
+  top: 20%;
+  border: none;
+  background: radial-gradient(var(--secondary-color) 2px, transparent 2px);
+  background-size: 24px 24px;
+}
+
+.shape-5 {
+  width: 4em;
+  height: 4em;
+  left: 70%;
+  top: 60%;
 }

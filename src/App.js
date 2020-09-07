@@ -53,6 +53,11 @@ class App extends React.Component{
       <div className='gb'>
         <header className='gb__header'>
           <Container>
+            <div className="shape-1"></div>
+            <div className="shape-2"></div>
+            <div className="shape-3"></div>
+            <div className="shape-4"></div>
+            <div className="shape-5"></div>
             <h1>Gurmat Bibek Private School</h1>
           </Container>
         </header>
@@ -61,6 +66,7 @@ class App extends React.Component{
           <Container component="section" className="gb__courses">
             <Grid container alignContent='center' justify='center' className='gb__video'>
               <iframe
+                title="YouTube Video"
                 width="90%" height="700" src={`https://www.youtube.com/embed/${ this.state.video }`} frameBorder="0"
                       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen></iframe>
