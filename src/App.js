@@ -5,6 +5,7 @@ import IntroVideo from './components/IntroVideo'
 import IntroBlurb from './components/IntroBlurb'
 import Courses from './components/Courses'
 import FeesStructure from './components/FeesStructure'
+import RegistrationForm from './components/RegistrationForm'
 import firebase from './firebase'
 
 function App () {
@@ -49,23 +50,7 @@ function App () {
       <IntroBlurb blurb={introBlurb}></IntroBlurb>
       <Courses courses={courses}></Courses>
       <FeesStructure />
-
-      {/*  <div className='gb__section-dark'>*/}
-      {/*    <Container component='section'>*/}
-      {/*      <Grid container spacing={1}>*/}
-      {/*        <Grid item lg={4}>*/}
-      {/*          <TextField id="standard-basic" label="Full Name"/>*/}
-      {/*        </Grid>*/}
-      {/*        <Grid item lg={4}>*/}
-      {/*          <TextField id="standard-basic" label="Email Address"/>*/}
-      {/*        </Grid>*/}
-      {/*        <Grid item lg={4}>*/}
-      {/*          <Button variant="contained">Sign Up for Updates</Button>*/}
-      {/*        </Grid>*/}
-      {/*      </Grid>*/}
-      {/*    </Container>*/}
-      {/*  </div>*/}
-      {/*</main>*/}
+      <RegistrationForm />
     </div>
   )
 }
