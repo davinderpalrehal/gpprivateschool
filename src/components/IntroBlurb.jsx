@@ -1,12 +1,55 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container } from '@material-ui/core'
+import firebase from '../firebase'
 
-function IntroBlurb (props) {
+function IntroBlurb () {
+  const [title, setTitle] = useState('')
+  const [paragraphs, setParagraphs] = useState([])
+
+  useEffect(() => {
+    const db = firebase.firestore()
+
+    if (window.location.hostname === 'localhost') {
+      db.settings({
+        host: 'localhost:8080',
+        ssl: false
+      })
+    }
+
+    db.collection('dynamic-content')
+      .where('type', '==', 'intro-title')
+      .limit(1)
+      .get()
+      .then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          setTitle(doc.data().content)
+        })
+      })
+
+    const unsubscribe = db.collection('dynamic-content')
+      .where('type', '==', 'intro-para')
+      .orderBy('order')
+      .get()
+      .then(querySnapshot => {
+        const tempPara = []
+        querySnapshot.forEach(doc => {
+          tempPara.push(doc.data().content)
+        })
+        setParagraphs(tempPara)
+      })
+
+    return () => unsubscribe()
+  }, [])
+
   return (
     <section className='gb__intro-blurb'>
       <Container>
-        <h3 className='gb__intro-blurb__title'>{props.blurb.title}</h3>
-        <p className='gb__intro-blurb__para'>{props.blurb.para}</p>
+        <h2 className='gb__intro-blurb__title'>{ title }</h2>
+        <div className="gb__intro-blurb__paras">
+          { paragraphs.map((para, index) =>
+            <p className='gb__intro-blurb__para' key={index}>{ para }</p>
+          )}
+        </div>
       </Container>
     </section>
   )
