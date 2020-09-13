@@ -4,10 +4,9 @@ import Header from './components/Header'
 import IntroVideo from './components/IntroVideo'
 import IntroBlurb from './components/IntroBlurb'
 import Courses from './components/Courses'
-// import FeesStructure from './components/FeesStructure'
-// import RegistrationForm from './components/RegistrationForm'
-// import firebase from './firebase'
-//
+import FeesStructure from './components/FeesStructure'
+import RegistrationForm from './components/RegistrationForm'
+
 function App () {
   return (
     <div className='gb'>
@@ -15,8 +14,8 @@ function App () {
        <IntroVideo />
        <IntroBlurb />
        <Courses />
-       {/*<FeesStructure />*/}
-       {/*<RegistrationForm />*/}
+       <FeesStructure />
+       <RegistrationForm />
      </div>
    )
 }

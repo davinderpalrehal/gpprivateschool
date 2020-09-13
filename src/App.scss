@@ -5,10 +5,11 @@
   --primary-dark-color: rgb(1, 11, 66);
   --secondary-light-color: rgb(206, 214, 72);
   --secondary-dark-color: rgb(156, 163, 21);
+  --text-primary-light-color: rgb(255, 255, 255)
 }
 
 body {
-  font-family: var(--body-font-family);
+  //font-family: var(--body-font-family);
 }
 
 h1,
@@ -16,7 +17,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+th {
   font-family: var(--heading-font-family);
 }
 
@@ -24,6 +26,31 @@ p {
   margin-top: 0;
   margin-bottom: 1em;
   text-align: justify;
+  font-size: 1.5rem;
+}
+
+table {
+  width: 100%;
+}
+
+thead {
+  background: var(--primary-light-color);
+  color: var(--text-primary-light-color)
+}
+
+th {
+  padding: 1em 0;
+  font-size: 1.4rem;
+}
+
+td {
+  padding: 0.5em 0;
+  border-bottom: 1px solid var(--primary-light-color);
+  font-size: 1.2rem;
+
+  p {
+    font-size: 0.7em;
+  }
 }
 
 .gb {
@@ -83,6 +110,8 @@ p {
 
     &__description {
       height: 200px;
+      text-align: left;
+      line-height: 1.5em;
     }
   }
 
