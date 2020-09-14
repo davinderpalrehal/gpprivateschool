@@ -26,7 +26,7 @@ p {
   margin-top: 0;
   margin-bottom: 1em;
   text-align: justify;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 table {
@@ -117,9 +117,14 @@ td {
 
   &__section {
     &-dark {
-      background: rgba(0, 4, 62, 1);
+      background: var(--primary-light-color);
       color: white;
       padding: 10em 0;
+
+      h3 {
+        text-align: center;
+        font-size: 1.2rem;
+      }
 
       input,
       label,
@@ -160,4 +165,10 @@ td {
 
 .pt-0 {
   padding-top: 0;
+}
+
+.MuiButton-label {
+  font-family: var(--heading-font-family);
+  font-size: 1.4rem;
+  letter-spacing: 0.2ch;
 }

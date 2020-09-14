@@ -18,7 +18,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "emulator": "firebase emulators:start --import=seed-data",
+    "backup-seed": "firebase emulators:export seed-data",
+    "deploy": "yarn build & firebase deploy"
   },
   "eslintConfig": {
     "extends": "react-app"
