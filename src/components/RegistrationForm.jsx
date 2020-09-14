@@ -79,7 +79,8 @@ function RegistrationForm () {
     return () => unsubscribe()
   }, [])
 
-  const registerStudent = () => {
+  const registerStudent = (event) => {
+    event.preventDefault()
     const db = firebase.firestore()
 
     if (window.location.hostname === 'localhost') {
@@ -89,7 +90,7 @@ function RegistrationForm () {
       })
     }
 
-    db.collect('registrations').add({
+    db.collection('registrations').add({
       'student-details': studentDetails,
       'previous-school': previousSchoolDetails,
       'father': fatherDetails,
@@ -98,8 +99,9 @@ function RegistrationForm () {
       'medical-details': medicalDetails
     })
       .then(docRef => {
-        window.localStorage.setItem('reg-number', docRef)
+        window.localStorage.setItem('reg-number', docRef.id)
         alert('Registration form submitted, navigating to payment page')
+        window.location.href = '/pay'
       })
   }
 
@@ -302,8 +304,8 @@ function RegistrationForm () {
                     onChange={handlePreviousSchoolDetails('previously-expelled')}
                     required
                   >
-                    <FormControlLabel value={true} control={<Radio />} label='Yes' />
-                    <FormControlLabel value={false} control={<Radio />} label='No' />
+                    <FormControlLabel value='yes' control={<Radio />} label='Yes' />
+                    <FormControlLabel value='no' control={<Radio />} label='No' />
                   </RadioGroup>
                 </Grid>
               </Grid>
