@@ -8,6 +8,13 @@ function Courses () {
   useEffect(() => {
     const db = firebase.firestore()
 
+    if (window.location.hostname === 'localhost') {
+      db.settings({
+        host: 'localhost:8080',
+        ssl: false
+      })
+    }
+
     const unsubscribe = db.collection('courses')
       .get()
       .then(querySnapshot => {
@@ -24,8 +31,8 @@ function Courses () {
   return (
     <Container component="section" className="gb__courses">
       <Grid container spacing={1}>
-        {courses.map((course) =>
-          <Grid item lg-4>
+        {courses.map((course, index) =>
+          <Grid item lg={4} key={index}>
             <Card variant='outlined' className='gb__course'>
               <CardContent className='gb__course__description'>
                 <h4 className='gb__course__title'>{course.title}</h4>

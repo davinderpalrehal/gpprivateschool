@@ -8,10 +8,6 @@
   --text-primary-light-color: rgb(255, 255, 255)
 }
 
-body {
-  //font-family: var(--body-font-family);
-}
-
 h1,
 h2,
 h3,
@@ -55,6 +51,7 @@ td {
 
 .gb {
   background: #eeeeee;
+  min-height: 100vh;
 
   &__header {
     background: var(--primary-light-color);

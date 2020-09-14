@@ -28,7 +28,7 @@ function IntroBlurb () {
 
     const unsubscribe = db.collection('dynamic-content')
       .where('type', '==', 'intro-para')
-      .orderBy('order')
+      .orderBy('order', 'asc')
       .get()
       .then(querySnapshot => {
         const tempPara = []

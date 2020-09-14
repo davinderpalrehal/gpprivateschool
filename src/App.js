@@ -1,22 +1,25 @@
 import React from 'react'
 import './App.scss'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom'
+import Home from './pages/Home'
+import Pay from './pages/Pay'
 import Header from './components/Header'
-import IntroVideo from './components/IntroVideo'
-import IntroBlurb from './components/IntroBlurb'
-import Courses from './components/Courses'
-import FeesStructure from './components/FeesStructure'
-import RegistrationForm from './components/RegistrationForm'
 
 function App () {
   return (
-    <div className='gb'>
-       <Header></Header>
-       <IntroVideo />
-       <IntroBlurb />
-       <Courses />
-       <FeesStructure />
-       <RegistrationForm />
-     </div>
+    <Router>
+      <div className='gb'>
+        <Header />
+        <Switch>
+          <Route path='/' exact component={Home} />
+          <Route path='/pay' exact component={Pay} />
+        </Switch>
+      </div>
+    </Router>
    )
 }
 

@@ -57,6 +57,13 @@ function RegistrationForm () {
   useEffect(() => {
     const db = firebase.firestore()
 
+    if (window.location.hostname === 'localhost') {
+      db.settings({
+        host: 'localhost:8080',
+        ssl: false
+      })
+    }
+
     const unsubscribe = db.collection('dynamic-content')
       .where('type', '==', 'waiver-line')
       .orderBy('order')
@@ -74,6 +81,14 @@ function RegistrationForm () {
 
   const registerStudent = () => {
     const db = firebase.firestore()
+
+    if (window.location.hostname === 'localhost') {
+      db.settings({
+        host: 'localhost:8080',
+        ssl: false
+      })
+    }
+
     db.collect('registrations').add({
       'student-details': studentDetails,
       'previous-school': previousSchoolDetails,
@@ -123,6 +138,17 @@ function RegistrationForm () {
                 hintText='Last name of the student'
                 value={studentDetails['last-name']}
                 onChange={handleChange('last-name')}
+                required
+              />
+            </Grid>
+
+            <Grid item xs={4}>
+              <TextField
+                label='Email address'
+                hintText='Student email address'
+                type='email'
+                value={studentDetails['email']}
+                onChange={handleChange('email')}
                 required
               />
             </Grid>
@@ -581,6 +607,15 @@ function RegistrationForm () {
                   <li className='gb__waiver-line' key={index}>{ waiver }</li>
                 )}
               </ul>
+            </Grid>
+
+            <Grid item xs={12}>
+              <FormControlLabel
+                control={<Checkbox name="TandCs" />}
+                label="By checking this box you accept the Terms and Conditions of the Gurmat Bibek Private School."
+                value={true}
+                required
+              />
             </Grid>
 
             <Grid item xs={12} container alignContent='center' justify='center'>
