@@ -18,24 +18,24 @@ function NavBar() {
                 <Link to='/'>Home</Link>
               </li>
               <li className='gb__nav__item'>
-                <Link className='dropdown' to='/'>Admission</Link>
+                <Link className='dropdown'>Admission</Link>
                 <ul>
                   <li className='gb__nav__item'>
                     <Link to='/registration'>Registration Form</Link>
                   </li>
                   <li className='gb__nav__item'>
-                    <Link>Tuition Fee Options</Link>
+                    <Link to='/tuition-fee'>Tuition Fee Options</Link>
                   </li>
                 </ul>
               </li>
               <li className='gb__nav__item'>
-                <Link to='/'>Programs</Link>
+                <Link to='/programs'>Programs</Link>
               </li>
               <li className='gb__nav__item'>
-                <Link to='/'>Contact Us</Link>
+                <Link to='/contact-us'>Contact Us</Link>
               </li>
               <li className='gb__nav__item'>
-                <Link to='/'>About Us</Link>
+                <Link to='/about-us'>About Us</Link>
               </li>
             </ul>
           </nav>

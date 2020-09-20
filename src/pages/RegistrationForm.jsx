@@ -3,7 +3,6 @@ import { Container, Grid, Button, TextField, FormControlLabel, Checkbox, FormLab
 import firebase from '../firebase'
 
 function RegistrationForm () {
-  const [showRegForm, setShowRegForm] = useState(false)
   const [studentDetails, setStudentDetails] = useState({})
   const [previousSchoolDetails, setPreviousSchoolDetails] = useState({})
   const [fatherDetails, setFatherDetails] = useState({})
@@ -83,7 +82,7 @@ function RegistrationForm () {
         setWaivers(tempWaiver)
       })
 
-    return () => unsubscribe()
+    return () => unsubscribe
   }, [])
 
   const registerStudent = (event) => {
@@ -145,7 +144,6 @@ function RegistrationForm () {
             <Grid item xs={4}>
               <TextField
                 label='First Name'
-                hintText='First name of the student'
                 value={studentDetails['first-name']}
                 onChange={handleChange('first-name')}
                 required
@@ -156,7 +154,6 @@ function RegistrationForm () {
               <TextField
                 label='Last Name'
                 id='student-last-name'
-                hintText='Last name of the student'
                 value={studentDetails['last-name']}
                 onChange={handleChange('last-name')}
                 required
@@ -166,7 +163,6 @@ function RegistrationForm () {
             <Grid item xs={4}>
               <TextField
                 label='Email address'
-                hintText='Student email address'
                 type='email'
                 value={studentDetails['email']}
                 onChange={handleChange('email')}
@@ -622,7 +618,7 @@ function RegistrationForm () {
               <h3>Please read the information below before signing the form:</h3>
             </Grid>
 
-            <Grid item={12}>
+            <Grid item xs={12}>
               <ul>
                 { waivers.map((waiver, index) =>
                   <li className='gb__waiver-line' key={index}>{ waiver }</li>

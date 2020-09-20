@@ -21,3 +21,14 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+/seed-data/firestore_export/all_namespaces/all_kinds/all_namespaces_all_kinds.export_metadata
+/.gradle/buildOutputCleanup/cache.properties
+/.gradle/checksums/checksums.lock
+/.idea/codeStyles/codeStyleConfig.xml
+/database-debug.log
+/.gradle/6.5/executionHistory/executionHistory.lock
+/.gradle/6.5/fileHashes/fileHashes.lock
+/.firebase/
+/.gradle/
+/.idea/
