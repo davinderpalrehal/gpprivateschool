@@ -26,7 +26,7 @@ function FeesStructure () {
         setPaymentOptions(temp)
       })
 
-    return () => unsubscribe()
+    return () => unsubscribe
   }, [])
 
   return (

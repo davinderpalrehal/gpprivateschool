@@ -10,7 +10,6 @@ import {
 import Header from './components/Header'
 // import Home from './pages/Home'
 // import RegistrationForm from './pages/RegistrationForm'
-// import Programs from './pages/Programs'
 // import ContactUs from './pages/ContactUs'
 // import AboutUs from './pages/AboutUs'
 // import TuitionFee from './components/TuitionFee'
@@ -18,6 +17,7 @@ import { Container } from '@material-ui/core'
 import Admissions from './pages/Admissions'
 import RegistrationForm from './pages/RegistrationForm'
 import TuitionFee from './components/TuitionFee'
+import Programs from './pages/Programs'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function App () {
@@ -44,6 +44,9 @@ function App () {
                     </li>
                   </ul>
                 </li>
+                <li className='gb__nav__item'>
+                  <Link to='/programs'>Programs</Link>
+                </li>
               </ul>
             </nav>
           </Container>
@@ -62,13 +65,12 @@ function App () {
           <Route path="/tuition-fee">
             <TuitionFee/>
           </Route>
+          <Route path="/programs">
+            <Programs/>
+          </Route>
         </Switch>
 
-        {/*//               </ul>*/}
-        {/*//             </li>*/}
-        {/*//             <li className='gb__nav__item'>*/}
-        {/*//               <Link to='/programs'>Programs</Link>*/}
-        {/*//             </li>*/}
+
         {/*//             <li className='gb__nav__item'>*/}
         {/*/!*              <Link to='/contact-us'>Contact Us</Link>*!/*/}
         {/*/!*            </li>*!/*/}
