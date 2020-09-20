@@ -16,6 +16,8 @@ import TuitionFee from './components/TuitionFee'
 import Programs from './pages/Programs'
 import ContactUs from './pages/ContactUs'
 import AboutUs from './pages/AboutUs'
+import Pay from './pages/Pay'
+import PrivacyPolicy from './pages/PrivacyPolicy'
 
 function App () {
   return (
@@ -38,6 +40,9 @@ function App () {
                     </li>
                     <li className='gb__nav__item'>
                       <Link to='/tuition-fee'>Tuition Fee Options</Link>
+                    </li>
+                    <li className='gb__nav__item'>
+                      <Link to='/privacy-policy'>Privacy Policy</Link>
                     </li>
                   </ul>
                 </li>
@@ -76,6 +81,12 @@ function App () {
           </Route>
           <Route path="/about-us">
             <AboutUs/>
+          </Route>
+          <Route path="/pay">
+            <Pay/>
+          </Route>
+          <Route path="/privacy-policy">
+            <PrivacyPolicy/>
           </Route>
         </Switch>
       </BrowserRouter>
