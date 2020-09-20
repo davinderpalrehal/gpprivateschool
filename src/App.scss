@@ -165,6 +165,8 @@ td {
 
   &__nav-bar {
     @extend .section-secondary;
+    position: sticky;
+    top: 0;
   }
 
   .highlight {
