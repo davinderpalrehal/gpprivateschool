@@ -3,7 +3,7 @@ import IntroVideo from '../components/IntroVideo'
 import IntroBlurb from '../components/IntroBlurb'
 import Courses from '../components/Courses'
 import FeesStructure from '../components/FeesStructure'
-import RegistrationForm from '../components/RegistrationForm'
+import RegistrationForm from './RegistrationForm'
 
 function Home () {
   return (

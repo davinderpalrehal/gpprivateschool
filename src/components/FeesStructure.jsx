@@ -40,7 +40,7 @@ function FeesStructure () {
                   <thead>
                     <tr>
                       <th colSpan={3}>
-                        Tuition For Grade 1 to Grade 7 - $4,000 per year
+                        Tuition For Grade 1 to Grade 7 - $4,000 per year plus $500 Administration Fees
                       </th>
                     </tr>
                   </thead>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Grid, Button, TextField, FormControlLabel, Checkbox, FormLabel, RadioGroup, Radio } from '@material-ui/core'
+import { Container, Grid, Button, TextField, FormControlLabel, Checkbox, FormLabel, RadioGroup, Radio, FormControl, InputLabel, Select } from '@material-ui/core'
 import firebase from '../firebase'
 
 function RegistrationForm () {
@@ -16,6 +16,13 @@ function RegistrationForm () {
     setStudentDetails({
       ...studentDetails,
       [property]: event.currentTarget.value
+    })
+  }
+
+  const setStudentType = event => {
+    setStudentDetails({
+      ...studentDetails,
+      type: event.currentTarget.value
     })
   }
 
@@ -108,17 +115,29 @@ function RegistrationForm () {
   return (
     <section className="gb__registration-form">
       <Container>
-        <Grid container alignContent='center' justify='center'>
-        { !showRegForm
-          ? <Button variant='contained' color='primary' onClick={() => setShowRegForm(true)}>Show Registration Form</Button>
-          : <Button variant='contained' color='secondary' onClick={() => setShowRegForm(false)}>Close Registration Form</Button>
-        }
-        </Grid>
-      </Container>
-      <Container>
-        { showRegForm ?
           <form onSubmit={registerStudent}>
           <Grid container spacing={3}>
+            <Grid item xs={12}>
+              <FormControl style={{ width: '100%'}}>
+                <InputLabel htmlFor="student-type" style={{ width: '100%'}}>Student Type</InputLabel>
+                <Select
+                  native
+                  value={studentDetails.type}
+                  onChange={setStudentType}
+                  inputProps={{
+                    name: 'type',
+                    id: 'student-type',
+                  }}
+                  style={{ width: '100%'}}
+                  required
+                >
+                  <option aria-label="None" value="" />
+                  <option value='full-time'>Full-Time Student</option>
+                  <option value='gurmat'>Gurmat Curriculum Only</option>
+                </Select>
+              </FormControl>
+            </Grid>
+
             <Grid item xs={12} className='gb__section-dark'>
               <h3>Student Information</h3>
             </Grid>
@@ -625,8 +644,6 @@ function RegistrationForm () {
             </Grid>
           </Grid>
           </form>
-          : ''
-        }
       </Container>
     </section>
   )

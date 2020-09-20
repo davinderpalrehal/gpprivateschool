@@ -49,6 +49,21 @@ td {
   }
 }
 
+.section {
+  padding: 1em 0;
+
+  &-secondary {
+    @extend .section;
+    background: var(--secondary-light-color);
+  }
+}
+
+.container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .gb {
   background: #eeeeee;
   min-height: 100vh;
@@ -148,6 +163,14 @@ td {
 
   &__registration-form {
     padding: 5em 0;
+  }
+
+  &__nav-bar {
+    @extend .section-secondary;
+  }
+
+  .highlight {
+    background: var(--secondary-dark-color);
   }
 
   p,
