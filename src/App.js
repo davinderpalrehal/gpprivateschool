@@ -8,18 +8,13 @@ import {
   Route
 } from 'react-router-dom'
 import Header from './components/Header'
-// import Home from './pages/Home'
-// import RegistrationForm from './pages/RegistrationForm'
-// import ContactUs from './pages/ContactUs'
-// import AboutUs from './pages/AboutUs'
-// import TuitionFee from './components/TuitionFee'
 import { Container } from '@material-ui/core'
 import Admissions from './pages/Admissions'
 import RegistrationForm from './pages/RegistrationForm'
 import TuitionFee from './components/TuitionFee'
 import Programs from './pages/Programs'
 import ContactUs from './pages/ContactUs'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import AboutUs from './pages/AboutUs'
 
 function App () {
   return (
@@ -51,6 +46,9 @@ function App () {
                 <li className='gb__nav__item'>
                   <Link to='/contact-us'>Contact Us</Link>
                 </li>
+                <li className='gb__nav__item'>
+                  <Link to='/about-us'>About Us</Link>
+                </li>
               </ul>
             </nav>
           </Container>
@@ -75,13 +73,14 @@ function App () {
           <Route path="/contact-us">
             <ContactUs/>
           </Route>
+          <Route path="/about-us">
+            <AboutUs/>
+          </Route>
         </Switch>
 
 
 
-        {/*//             <li className='gb__nav__item'>*/}
-        {/*//               <Link to='/about-us'>About Us</Link>*/}
-        {/*//             </li>*/}
+
         {/*//           </ul>*/}
         {/*/!*        </nav>*!/*/}
         {/*/!*      </Router>*!/*/}
