@@ -1,6 +1,6 @@
 import React from 'react'
-// import IntroVideo from '../components/IntroVideo'
-// import IntroBlurb from '../components/IntroBlurb'
+import IntroVideo from '../components/IntroVideo'
+import IntroBlurb from '../components/IntroBlurb'
 // import Courses from '../components/Courses'
 // import FeesStructure from '../components/FeesStructure'
 // import RegistrationForm from './RegistrationForm'
@@ -8,9 +8,8 @@ import React from 'react'
 function Home () {
   return (
     <>
-      <h1>Home page</h1>
-      {/*<IntroVideo/>*/}
-      {/*<IntroBlurb/>*/}
+      <IntroVideo/>
+      <IntroBlurb/>
       {/*<Courses/>*/}
       {/*<FeesStructure/>*/}
       {/*<RegistrationForm/>*/}

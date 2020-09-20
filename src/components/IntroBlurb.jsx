@@ -38,7 +38,7 @@ function IntroBlurb () {
         setParagraphs(tempPara)
       })
 
-    return () => unsubscribe()
+    return () => unsubscribe
   }, [])
 
   return (

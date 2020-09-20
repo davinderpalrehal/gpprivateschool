@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom'
 import Header from './components/Header'
 import { Container } from '@material-ui/core'
+import Home from './pages/Home'
 import Admissions from './pages/Admissions'
 import RegistrationForm from './pages/RegistrationForm'
 import TuitionFee from './components/TuitionFee'
@@ -77,58 +78,8 @@ function App () {
             <AboutUs/>
           </Route>
         </Switch>
-
-
-
-
-        {/*//           </ul>*/}
-        {/*/!*        </nav>*!/*/}
-        {/*/!*      </Router>*!/*/}
-        {/*//     </Container>*/}
-        {/*//   </section>*/}
-        {/*//*/}
-        {/*//   <Switch>*/}
-        {/*    <Route exact path='/'>*/}
-        {/*//       <Home />*/}
-        {/*//     </Route>*/}
-        {/*//     <Route exact path='/registration'>*/}
-        {/*//       <RegistrationForm />*/}
-        {/*//     </Route>*/}
-        {/*    <Route exact path='/tuition-fee'>*/}
-        {/*      <TuitionFee />*/}
-        {/*//     </Route>*/}
-        {/*//     <Route exact path='/programs'>*/}
-        {/*//       <Programs />*/}
-        {/*//     </Route>*/}
-        {/*//     <Route exact path='/contact-us'>*/}
-        {/*//       <ContactUs />*/}
-        {/*//     </Route>*/}
-        {/*    <Route exact path='/about-us'>*/}
-        {/*      <AboutUs />*/}
-        {/*    </Route>*/}
-        {/*  </Switch>*/}
-        {/*</div>*/}
-        {/*<div className='gb'>*/}
-        {/*  <Header />*/}
-        {/*  <NavBar />*/}
-        {/*  <Switch>*/}
-        {/*    <Route path='/' exact component={Home} />*/}
-        {/*    <Route path='/admissions' exact component={Admissions} />*/}
-        {/*    <Route path='/registration' exact component={RegistrationForm} />*/}
-        {/*    <Route path='/programs' exact component={Programs} />*/}
-        {/*    <Route path='/contact-us' exact component={ContactUs} />*/}
-        {/*    <Route path='/about-us' exact component={AboutUs} />*/}
-        {/*    <Route path='/pay' exact component={Pay} />*/}
-        {/*  </Switch>*/}
-        {/*</div>*/}
       </BrowserRouter>
     </div>
-  )
-}
-
-function Home () {
-  return (
-    <h1>Home page</h1>
   )
 }
 
