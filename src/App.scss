@@ -171,6 +171,14 @@ td {
     background: var(--secondary-dark-color);
   }
 
+  &__contact-us {
+    text-align: center;
+
+    p {
+      @extend .gb__contact-us;
+    }
+  }
+
   p,
   li{
     font-family: sans-serif;

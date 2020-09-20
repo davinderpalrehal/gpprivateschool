@@ -18,6 +18,7 @@ import Admissions from './pages/Admissions'
 import RegistrationForm from './pages/RegistrationForm'
 import TuitionFee from './components/TuitionFee'
 import Programs from './pages/Programs'
+import ContactUs from './pages/ContactUs'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function App () {
@@ -47,6 +48,9 @@ function App () {
                 <li className='gb__nav__item'>
                   <Link to='/programs'>Programs</Link>
                 </li>
+                <li className='gb__nav__item'>
+                  <Link to='/contact-us'>Contact Us</Link>
+                </li>
               </ul>
             </nav>
           </Container>
@@ -68,12 +72,13 @@ function App () {
           <Route path="/programs">
             <Programs/>
           </Route>
+          <Route path="/contact-us">
+            <ContactUs/>
+          </Route>
         </Switch>
 
 
-        {/*//             <li className='gb__nav__item'>*/}
-        {/*/!*              <Link to='/contact-us'>Contact Us</Link>*!/*/}
-        {/*/!*            </li>*!/*/}
+
         {/*//             <li className='gb__nav__item'>*/}
         {/*//               <Link to='/about-us'>About Us</Link>*/}
         {/*//             </li>*/}
