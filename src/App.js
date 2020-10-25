@@ -42,7 +42,7 @@ function App () {
                       <Link to='/tuition-fee'>Tuition Fee Options</Link>
                     </li>
                     <li className='gb__nav__item'>
-                      <Link to='/privacy-policy'>Privacy Policy</Link>
+                      <Link to='/policy'>Policy</Link>
                     </li>
                   </ul>
                 </li>
@@ -85,7 +85,7 @@ function App () {
           <Route path="/pay">
             <Pay/>
           </Route>
-          <Route path="/privacy-policy">
+          <Route path="/policy">
             <PrivacyPolicy/>
           </Route>
         </Switch>

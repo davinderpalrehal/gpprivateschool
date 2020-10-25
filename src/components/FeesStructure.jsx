@@ -3,7 +3,8 @@ import { Container, Grid, Card, CardContent } from '@material-ui/core'
 import firebase from '../firebase'
 
 function FeesStructure () {
-  const [paymentOptions, setPaymentOptions] = useState([])
+  const [fullTimeOptions, setFullTimeOptions] = useState([])
+  const [gurmatOptions, setGurmatOptions] = useState([])
 
   useEffect(() => {
     const db = firebase.firestore()
@@ -19,11 +20,18 @@ function FeesStructure () {
       .orderBy('order')
       .get()
       .then(querySnapshot => {
-        const temp = []
+        const tempFT = []
+        const tempG = []
         querySnapshot.forEach(doc => {
-          temp.push(doc.data())
+          if (doc.data()['student-type'] === 'full-time') {
+            tempFT.push(doc.data())
+          }
+          else {
+            tempG.push(doc.data())
+          }
         })
-        setPaymentOptions(temp)
+        setFullTimeOptions(tempFT)
+        setGurmatOptions(tempG)
       })
 
     return () => unsubscribe
@@ -40,13 +48,13 @@ function FeesStructure () {
                   <thead>
                     <tr>
                       <th colSpan={3}>
-                        Tuition For Grade 1 to Grade 7 - $4,000 per year plus $500 Administration Fees
+                        Full-Time Student
                       </th>
                     </tr>
                   </thead>
 
                   <tbody>
-                  { paymentOptions.map((option, index) =>
+                  { fullTimeOptions.map((option, index) =>
                     <tr key={index}>
                       <td>
                     { option.name }
@@ -54,6 +62,30 @@ function FeesStructure () {
                     </td>
                     <td>{ option.description }</td>
                     <td>{ option.price }</td>
+                    </tr>
+
+                  )}
+                  </tbody>
+                </table>
+
+                <table>
+                  <thead>
+                  <tr>
+                    <th colSpan={3}>
+                      Gurmat Student
+                    </th>
+                  </tr>
+                  </thead>
+
+                  <tbody>
+                  { gurmatOptions.map((option, index) =>
+                    <tr key={index}>
+                      <td>
+                        { option.name }
+                        { option['sub-text'] ? <p>{ option['sub-text'] }</p> : ''}
+                      </td>
+                      <td>{ option.description }</td>
+                      <td>{ option.price }</td>
                     </tr>
 
                   )}

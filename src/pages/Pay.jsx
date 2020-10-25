@@ -97,30 +97,111 @@ function Pay() {
             </thead>
             <tbody>
             { paymentOptions.map((option, index) =>
-              <tr key={index} className={ option.name === selectedPayment.name ? 'highlight' : '' }>
+              option['student-type'] === student.type
+              ? <tr key={index} className={ option.name === selectedPayment.name ? 'highlight' : '' }>
                 <td>{option['name']}</td>
                 <td>${option['pay-now']}</td>
                 <td>{option['number-of-installments']}</td>
               </tr>
+                : ''
             )}
             </tbody>
           </table>
         </Grid>
 
-        {/*<Grid item xs={12}>
-          <p>Pay $ {paymentOptions[paymentIndex]['pay-now']}</p>
-          <p>
-            <PayPalButton
-              amount={paymentOptions[paymentIndex]['pay-now']}
+        <Grid item xs={12}>
+          { selectedPayment['pay-now'] ===  150
+            ? <PayPalButton
+              options={{vault: true}}
+              createSubscription={(data, actions) => {
+                return actions.subscription.create({
+                  plan_id: 'P-9YA263398M752212BL5TZW2Q'
+                });
+              }}
+              onApprove={(data, actions) => {
+                // Capture the funds from the transaction
+                return actions.subscription.get().then(function(details) {
+                  // Show a success message to your buyer
+                  alert("Subscription completed");
+
+                  // OPTIONAL: Call your server to save the subscription
+                  return fetch("/paypal-subscription-complete", {
+                    method: "post",
+                    body: JSON.stringify({
+                      orderID: data.orderID,
+                      subscriptionID: data.subscriptionID
+                    })
+                  });
+                });
+              }}
+                  // eslint-disable-next-line
+              options={{
+                clientId: "AV2FlpQvVZChWtogYH-D6Tnz7hz8j4dr5AujeMp7mynNi42WA02sabzVYc2KhSW26MAZF-0XmS5Be-Aq",
+                currency: 'CAD'
+              }}
+            />
+            : ''
+          }
+
+          { selectedPayment['pay-now'] ===  1045
+            ? <PayPalButton
+              options={{vault: true}}
+              createSubscription={(data, actions) => {
+                return actions.subscription.create({
+                  plan_id: 'P-8G526678W0850173WL5RD62Y'
+                });
+              }}
+              onApprove={(data, actions) => {
+                // Capture the funds from the transaction
+                return actions.subscription.get().then(function(details) {
+                  // Show a success message to your buyer
+                  alert("Subscription completed");
+
+                  // OPTIONAL: Call your server to save the subscription
+                  return fetch("/paypal-subscription-complete", {
+                    method: "post",
+                    body: JSON.stringify({
+                      orderID: data.orderID,
+                      subscriptionID: data.subscriptionID
+                    })
+                  });
+                });
+              }}
+                  // eslint-disable-next-line
+              options={{
+                clientId: "AV2FlpQvVZChWtogYH-D6Tnz7hz8j4dr5AujeMp7mynNi42WA02sabzVYc2KhSW26MAZF-0XmS5Be-Aq",
+                currency: 'CAD'
+              }}
+            />
+            : ''
+          }
+
+          { selectedPayment['pay-now'] !==  1045 && selectedPayment['pay-now'] !==  150
+            ? <PayPalButton
+              amount={selectedPayment['pay-now']}
+              // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
               onSuccess={(details, data) => {
                 alert("Transaction completed by " + details.payer.name.given_name);
+
+                // OPTIONAL: Call your server to save the transaction
                 return fetch("/paypal-transaction-complete", {
                   method: "post",
                   body: JSON.stringify({
-                    orderId: data.orderID
+                    orderID: data.orderID
                   })
                 });
               }}
+              options={{
+                clientId: "AV2FlpQvVZChWtogYH-D6Tnz7hz8j4dr5AujeMp7mynNi42WA02sabzVYc2KhSW26MAZF-0XmS5Be-Aq",
+                currency: 'CAD'
+              }}
+            />
+            : ''
+          }
+        </Grid>
+
+        {/*<Grid item xs={12}>
+
               options={{
                 clientId: "AV2FlpQvVZChWtogYH-D6Tnz7hz8j4dr5AujeMp7mynNi42WA02sabzVYc2KhSW26MAZF-0XmS5Be-Aq",
                 currency: 'CAD'
@@ -134,3 +215,75 @@ function Pay() {
 }
 
 export default Pay
+
+
+/**
+
+ <script src="https://www.paypal.com/sdk/js?client-id=AV2FlpQvVZChWtogYH-D6Tnz7hz8j4dr5AujeMp7mynNi42WA02sabzVYc2KhSW26MAZF-0XmS5Be-Aq&vault=true" data-sdk-integration-source="button-factory"></script>
+ <script>
+ paypal.Buttons({
+      style: {
+          shape: 'rect',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          'plan_id': 'P-'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID);
+      }
+  }).render('#paypal-button-container');
+ </script>
+ [21:12, 20/09/2020] Preetam Singh: that is for multiple children gurmat curriculum
+ [21:12, 20/09/2020] Preetam Singh: $150
+ [21:12, 20/09/2020] Preetam Singh: <div id="paypal-button-container"></div>
+ <script src="https://www.paypal.com/sdk/js?client-id=AV2FlpQvVZChWtogYH-D6Tnz7hz8j4dr5AujeMp7mynNi42WA02sabzVYc2KhSW26MAZF-0XmS5Be-Aq&vault=true" data-sdk-integration-source="button-factory"></script>
+ <script>
+ paypal.Buttons({
+      style: {
+          shape: 'rect',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          'plan_id': 'P-8G526678W0850173WL5RD62Y'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID);
+      }
+  }).render('#paypal-button-container');
+ </script>
+ [21:13, 20/09/2020] Preetam Singh: this one is the one you had made
+ [21:13, 20/09/2020] Preetam Singh: <div id="smart-button-container">
+ <div style="text-align: center;">
+ <div id="paypal-button-container"></div>
+ </div>
+ </div>
+ <script src="https://www.paypal.com/sdk/js?client-id=AV2FlpQvVZChWtogYH-D6Tnz7hz8j4dr5AujeMp7mynNi42WA02sabzVYc2KhSW26MAZF-0XmS5Be-Aq&currency=CAD" data-sdk-integration-source="button-factory"></script>
+ <script>
+ function initPayPalButton() {
+      paypal.Buttons({
+        style: {
+          shape: 'rect',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'paypal',
+
+        },
+
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{"amount":{"currency_code":"CAD","value":1}}]
+          });
+        },
+
+        onApp…
+[21:13, 20/09/2020] Preetam Singh: this is for the smart button
+ */

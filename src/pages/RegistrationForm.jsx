@@ -327,7 +327,7 @@ function RegistrationForm () {
             </Grid>
 
             <Grid item xs={12} className='gb__section-dark'>
-              <h3>Siblings Attending Gurmat Bibek School</h3>
+              <h3>Siblings Attending Dasmesh Khalsa School</h3>
             </Grid>
 
             <Grid item xs={6}>
@@ -629,7 +629,7 @@ function RegistrationForm () {
             <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox name="TandCs" />}
-                label="By checking this box you accept the Terms and Conditions of the Gurmat Bibek Private School."
+                label="By checking this box you accept the Terms and Conditions of the Dasmesh Khalsa School."
                 value={true}
                 required
               />
