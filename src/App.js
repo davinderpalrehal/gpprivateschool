@@ -1,27 +1,28 @@
 import React from 'react'
 import './App.scss'
-import './components/styles/NavBar.scss'
-import {
-  BrowserRouter,
-  Link,
-  Switch,
-  Route
-} from 'react-router-dom'
-import Header from './components/Header'
-import { Container } from '@material-ui/core'
-import Home from './pages/Home'
-import Admissions from './pages/Admissions'
-import RegistrationForm from './pages/RegistrationForm'
-import TuitionFee from './components/TuitionFee'
-import Programs from './pages/Programs'
-import ContactUs from './pages/ContactUs'
-import AboutUs from './pages/AboutUs'
-import Pay from './pages/Pay'
-import PrivacyPolicy from './pages/PrivacyPolicy'
-
+// import './components/styles/NavBar.scss'
+// import {
+//   BrowserRouter,
+//   Link,
+//   Switch,
+//   Route
+// } from 'react-router-dom'
+// import Header from './components/Header'
+// import { Container } from '@material-ui/core'
+// import Home from './pages/Home'
+// import Admissions from './pages/Admissions'
+// import RegistrationForm from './pages/RegistrationForm'
+// import TuitionFee from './components/TuitionFee'
+// import Programs from './pages/Programs'
+// import ContactUs from './pages/ContactUs'
+// import AboutUs from './pages/AboutUs'
+// import Pay from './pages/Pay'
+// import PrivacyPolicy from './pages/PrivacyPolicy'
+//
 function App () {
   return (
     <div className="gb">
+      {/*
       <Header/>
 
       <BrowserRouter>
@@ -90,6 +91,7 @@ function App () {
           </Route>
         </Switch>
       </BrowserRouter>
+      */}
     </div>
   )
 }
