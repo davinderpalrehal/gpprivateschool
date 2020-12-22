@@ -1,12 +1,11 @@
 import React from 'react'
-import { Container } from '@material-ui/core'
 
 function Header () {
   return (
-    <header className='gb__header'>
-      <Container>
+    <header className='gb__header bg-primary'>
+      <div className="container">
         <h1>Dasmesh Khalsa School</h1>
-      </Container>
+      </div>
     </header>
   )
 }

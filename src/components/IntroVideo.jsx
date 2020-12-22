@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Container, Grid } from '@material-ui/core'
 import firebase from '../firebase'
+import './styles/IntroVideo.scss'
 
 function IntroVideo () {
     const [video, setVideo] = useState('')
@@ -33,11 +34,8 @@ function IntroVideo () {
         <Grid container alignContent='center' justify='center'>
           <iframe
             title="YouTube Video"
-            width="90%"
-            height="700"
             src={`https://www.youtube.com/embed/${video}`}
             frameBorder="0"
-            // allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
         </Grid>

@@ -1,0 +1,62 @@
+.container {
+    display: flex;
+    width: 90vw;
+    margin: 0 auto;
+}
+
+.bg {
+    &-primary {
+        background: var(--primary-light-color);
+        color: var(--primary-light-color-text);
+    }
+}
+
+h1,
+h2 {
+    font-family: var(--heading-font-family);
+    text-align: center;
+    flex-grow: 1;
+}
+
+h1 {
+    font-size: var(--h1-font-size);
+}
+
+h2 {
+    font-size: var(--h2-font-size);
+}
+
+.btn-circle {
+    background: var(--primary-dark-color) !important;
+    border-radius: 200px !important;
+    width: 65px !important;
+    height: 65px !important;
+    color: white !important;
+}
+
+.p {
+    &-absolute {
+        position: absolute !important;
+        top: 1em;
+        right: 1em;
+    }
+}
+
+.btn-shadow-light {
+    box-shadow: 0 0 20px -10px white;
+}
+
+.cancel-btn {
+    border-radius: 200px !important;
+    width: 65px !important;
+    height: 65px !important;
+    color: var(--secondary-light-color);
+}
+
+.MuiDrawer-paperAnchorRight {
+    background: var(--secondary-dark-color) !important;
+}
+
+p {
+    text-align: left;
+}
