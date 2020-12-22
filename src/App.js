@@ -1,6 +1,4 @@
 import React from 'react'
-import './App.scss'
-// import './components/styles/NavBar.scss'
 import {
   BrowserRouter,
   Link,
@@ -10,6 +8,7 @@ import {
 import Header from './components/Header'
 import MobileMenu from './components/MobileMenu'
 import { Container } from '@material-ui/core'
+import { Typography } from '@material-ui/core';
 import Home from './pages/Home'
 import Admissions from './pages/Admissions'
 import RegistrationForm from './pages/RegistrationForm'
@@ -19,6 +18,7 @@ import ContactUs from './pages/ContactUs'
 import AboutUs from './pages/AboutUs'
 import Pay from './pages/Pay'
 import PrivacyPolicy from './pages/PrivacyPolicy'
+import './App.scss'
 
 function App () {
   return (

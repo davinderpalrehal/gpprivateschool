@@ -5,8 +5,8 @@ import IntroBlurb from '../components/IntroBlurb'
 function Home () {
   return (
     <>
-      <IntroVideo/>
-      <IntroBlurb/>
+      {/*<IntroVideo/>*/}
+      {/*<IntroBlurb/>*/}
     </>
   )
 }
