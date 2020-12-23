@@ -6,7 +6,7 @@ function Home () {
   return (
     <>
       <IntroVideo/>
-      {/*<IntroBlurb/>*/}
+      <IntroBlurb/>
     </>
   )
 }
