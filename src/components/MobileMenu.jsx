@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, SwipeableDrawer } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 import CancelIcon from '@material-ui/icons/Cancel'
-import { BrowserRouter as Router, Link } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 import './styles/MobileMenu.scss'
 
 function Header () {
@@ -28,27 +28,27 @@ function Header () {
         <Router>
           <ul className='gb__nav__mobile'>
             <li className='gb__nav__item'>
-              <Link to='/'>Home</Link>
+              <a href="/">Home</a>
             </li>
             <li className='gb__nav__item'>
-              <Link className='dropdown' to='/registration'>Admission</Link>
+              <a href="/registration">Admission</a>
               <ul>
                 <li className='gb__nav__item'>
-                  <Link to='/registration'>Registration Form</Link>
+                  <a href="/registration">Registration Form</a>
                 </li>
                 <li className='gb__nav__item'>
-                  <Link to='/tuition-fee'>Tuition Fee Options</Link>
+                  <a href='/tuition-fee'>Tuition Fee Options</a>
                 </li>
               </ul>
             </li>
             <li className='gb__nav__item'>
-              <Link to='/programs'>Programs</Link>
+              <a href='/programs'>Programs</a>
             </li>
             <li className='gb__nav__item'>
-              <Link to='/contact-us'>Contact Us</Link>
+              <a href='/contact-us'>Contact Us</a>
             </li>
             <li className='gb__nav__item'>
-              <Link to='/about-us'>About Us</Link>
+              <a href='/about-us'>About Us</a>
             </li>
           </ul>
         </Router>

@@ -28,7 +28,7 @@
     "eject": "react-scripts eject",
     "emulator": "firebase emulators:start --import=seed-data",
     "backup-seed": "firebase emulators:export seed-data",
-    "deploy": "yarn build & firebase deploy"
+    "deploy": "firebase deploy"
   },
   "eslintConfig": {
     "extends": "react-app"
