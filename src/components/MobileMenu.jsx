@@ -16,15 +16,15 @@ function Header () {
   }
 
   return (
-    <React.Fragment>
-      <Button onClick={toggleDrawer(true)} className='btn-circle p-absolute btn-shadow-light'><MenuIcon /></Button>
+    <div className='xs-only'>
+      <Button onClick={toggleDrawer(true)} className='gb__nav-mobile__toggle btn-circle p-absolute btn-shadow-light'><MenuIcon /></Button>
       <SwipeableDrawer
         anchor="right"
         open={state}
         onClose={toggleDrawer(false)}
         onOpen={toggleDrawer(true)}
       >
-        <Button onClick={toggleDrawer(false)}><CancelIcon className='cancel-btn' /></Button>
+        <Button onClick={toggleDrawer(false)}><CancelIcon className='gb__nav-mobile__close cancel-btn' /></Button>
         <Router>
           <ul className='gb__nav__mobile'>
             <li className='gb__nav__item'>
@@ -53,7 +53,7 @@ function Header () {
           </ul>
         </Router>
       </SwipeableDrawer>
-    </React.Fragment>
+    </div>
   )
 }
 

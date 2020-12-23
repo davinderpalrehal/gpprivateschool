@@ -1,35 +1,60 @@
-//.gb {
-//    &__nav {
-//        &__mobile {
-//            list-style: none;
-//            margin-right: 2em;
-//            ul {
-//                list-style: none;
-//                margin-left: 1px;
-//                padding-left: 1em;
-//            }
-//        }
-//
-//        &__item {
-//            text-transform: uppercase;
-//            margin: 0.5em 0;
-//            font-family: var(--heading-font-family);
-//            font-size: 1.5rem;
-//            letter-spacing: 1px;
-//
-//            a {
-//                text-decoration: none;
-//
-//                &:link,
-//                &:visited {
-//                    color: var(--primary-light-color);
-//                }
-//
-//                &:hover,
-//                &:active {
-//                    background: var(--secondary-light-color);
-//                }
-//            }
-//        }
-//    }
-//}
+.gb {
+    &__nav {
+        &__mobile {
+            list-style: none;
+            margin-right: 2em;
+            ul {
+                list-style: none;
+                margin-left: 1px;
+                padding-left: 1em;
+            }
+        }
+
+        &__item {
+            text-transform: uppercase;
+            margin: 0.5em 0;
+            font-family: var(--heading-font-family);
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+
+            a {
+                text-decoration: none;
+
+                &:link,
+                &:visited {
+                    color: var(--primary-light-color);
+                }
+
+                &:hover,
+                &:active {
+                    background: var(--secondary-light-color);
+                }
+            }
+        }
+    }
+
+    &__nav-mobile {
+        &__toggle {
+            position: absolute !important;
+            background: var(--primary-dark-color) !important;
+            border-radius: 200px !important;
+            box-shadow: 0 0 20px -10px white;
+            color: white !important;
+            height: 65px !important;
+            right: 1rem;
+            top: 1rem;
+            width: 65px !important;
+        }
+
+        &__close {
+            border-radius: 200px !important;
+            color: var(--secondary-light-color);
+            height: 65px !important;
+            width: 65px !important;
+        }
+    }
+}
+
+.MuiDrawer-paperAnchorRight {
+    background: var(--secondary-dark-color) !important;
+}
