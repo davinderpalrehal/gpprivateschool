@@ -32,12 +32,16 @@ function IntroVideo () {
     <section className="gb__video">
       <Container>
         <Grid container alignContent='center' justify='center'>
-          <iframe
-            title="YouTube Video"
-            src={`https://www.youtube.com/embed/${video}`}
-            frameBorder="0"
-            allowFullScreen
-          />
+          <div className="video-wrapper">
+            <iframe
+              title="YouTube Video"
+              src={`https://www.youtube.com/embed/${video}`}
+              frameBorder="0"
+              width="560"
+              height="349"
+              allowFullScreen
+            />
+          </div>
         </Grid>
       </Container>
     </section>
