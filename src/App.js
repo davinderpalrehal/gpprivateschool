@@ -23,11 +23,8 @@ import './App.scss'
 function App () {
   return (
     <div className="gb">
-
       <Header/>
-
       <MobileMenu />
-
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
